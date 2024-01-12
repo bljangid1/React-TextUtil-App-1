@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Count</title>
+</head>
+<body>
+
+  <textarea id="myTextarea" rows="4" cols="50"></textarea>
+  <p id="wordCount">Word count: 0</p>
+
+  <script>
+    function countWords() {
+      // Get the textarea element
+      const textarea = document.getElementById('myTextarea');
+
+      // Get the content of the textarea
+      const text = textarea.value;
+
+      // Check if the input is not empty and not just spaces
+      if (text.trim() === '') {
+        document.getElementById('wordCount').textContent = 'Word count: 0';
+        return;
+      }
+
+      // Remove leading and trailing spaces and split the text into words
+      const words = text.trim().split(/\s+/);
+
+      // Display the word count
+      const wordCount = words.length;
+      document.getElementById('wordCount').textContent = `Word count: ${wordCount}`;
+    }
+
+    // Attach an event listener to the textarea for the input event
+    document.getElementById('myTextarea').addEventListener('input', countWords);
+  </script>
+
+</body>
+</html>
